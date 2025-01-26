@@ -52,10 +52,20 @@ module.exports.getUserProfile = async (req, res) => {
 }
 
 module.exports.logoutUser = async (req, res) => {
+    try{
     res.clearCookie('token');
     const token = req.cookies.token || req.headers.authorization.split(' ')[1];
 
+    const existingToken = await blacklistedTokenModel.findOne({ token });
+    if (existingToken) {
+        return res.status(200).json({ message: 'Token already blacklisted, logged out' });
+    }
     await blacklistedTokenModel.create({ token });
     
     res.status(200).json({ message: 'Logged out successfully' });
+    } catch (error) {
+        if (error.code === 11000) {
+            return res.status(200).json({ message: 'Token already blacklisted, logged out' });
+        }
+    }
 }
