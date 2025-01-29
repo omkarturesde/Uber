@@ -11,16 +11,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@tailwindcss/cli": "^4.0.0",
     "@tailwindcss/oxide-win32-ia32-msvc": "^0.0.0-insiders.8fb9ae8f",
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/vite": "^4.0.0",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
+    "gsap": "^3.12.7",
     "postcss": "^8.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.1.3"
+    "react-router-dom": "^7.1.3",
+    "remixicon": "^4.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
